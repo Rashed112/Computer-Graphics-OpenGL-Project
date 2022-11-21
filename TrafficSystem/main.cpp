@@ -15,7 +15,7 @@ using namespace std;
 unsigned int ID;
 //BmpLoader bl;'
 float rot=0;
-
+bool redSignal = false;
 bool l_on1 = true;
 bool l_on2 = true;
 bool l_on3 = true;
@@ -742,6 +742,7 @@ void Floor(void)
 
             glPushMatrix();
             glTranslatef(-100,-3,i*-10);
+            //glRotated(90, 0, 0, 1);
             glScaled(200,1,110);
             drawcube(.322,.745,.5,30);
             glPopMatrix();
@@ -759,6 +760,37 @@ void Floor(void)
     glDisable(GL_TEXTURE_2D);
 
 }
+void Floor2(void)
+{
+    for(int i=1; i<180; i++)
+    {
+
+        if(i<=18||i>=34)
+        {
+            glBindTexture(GL_TEXTURE_2D,2);
+            glEnable(GL_TEXTURE_2D);
+
+            glPushMatrix();
+            glTranslatef(-100,-3,i*-10);
+
+            glScaled(200,1,110);
+            drawcube(.322,.745,.5,30);
+            glPopMatrix();
+            glDisable(GL_TEXTURE_2D);
+        }
+    }
+    ///pani
+    glBindTexture(GL_TEXTURE_2D,12);
+    glEnable(GL_TEXTURE_2D);
+    glPushMatrix();
+    glTranslatef(-100,-3.5,21*-10);
+    glScaled(200,1,110);
+    drawcube(1,1,1,30);
+    glPopMatrix();
+    glDisable(GL_TEXTURE_2D);
+
+}
+
 
 void track(void)
 {
@@ -784,15 +816,6 @@ void track(void)
         }
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 void piler()
@@ -1044,7 +1067,7 @@ void car(void)
 
     //glRotatef(rot,0,1,0);
 
-    glScaled(2.2,2,4);
+    glScaled(2.2,1,4);
     drawcube(1,1,1,1);
     glDisable(GL_TEXTURE_2D);
     //glRotatef(rot,0,1,0);
@@ -1052,68 +1075,68 @@ void car(void)
 
 
     spotlight(-1+x_look,-1.25,-1.9+zz,30);
-//    ///Red light1
-//    glBindTexture(GL_TEXTURE_2D,11);
-//    glEnable(GL_TEXTURE_2D);
-//    glPushMatrix();
-//    glTranslatef(-1+x_look,-1.25,-1.9+zz);
-//    //reff();
-//    glScaled(.4,.2,4);
-//    drawcube(1,1,1,1,1);
-//    glDisable(GL_TEXTURE_2D);
-//    glPopMatrix();
-//
-//    ///red light 2
-//    glBindTexture(GL_TEXTURE_2D,11);
-//    glEnable(GL_TEXTURE_2D);
-//    glPushMatrix();
-//    glTranslatef(0.6+x_look,-1.25,-1.9+zz);
-//    glScaled(.4,.2,4);
-//    drawcube(1,1,1,1,1);
-//    glDisable(GL_TEXTURE_2D);
-//    glPopMatrix();
-//
-//
-//
-//
-//    ///numberplate
-//    glBindTexture(GL_TEXTURE_2D,10);
-//    glEnable(GL_TEXTURE_2D);
-//    glPushMatrix();
-//    glTranslatef(-.3+x_look,-1.6,-1.9+zz);
-//    glScaled(.6,.4,4);
-//    drawcube(1,1,1,1);
-//    glDisable(GL_TEXTURE_2D);
-//    glPopMatrix();
-//
-//
-//    ///BUMPER
-//    glPushMatrix();
-//    glTranslatef(-1+x_look,-1.8,-1.9+zz);
-//    glScaled(2,.1,4);
-//    drawcube(255.1/255,255.1/255,255.1/255);
-//    glPopMatrix();
+    ///Red light1
+    glBindTexture(GL_TEXTURE_2D,11);
+    glEnable(GL_TEXTURE_2D);
+    glPushMatrix();
+    glTranslatef(-1+x_look,-1.25,-1.9+zz);
+    //reff();
+    glScaled(.4,.2,4);
+    drawcube(1,1,1,1,1);
+    glDisable(GL_TEXTURE_2D);
+    glPopMatrix();
+
+    ///red light 2
+    glBindTexture(GL_TEXTURE_2D,11);
+    glEnable(GL_TEXTURE_2D);
+    glPushMatrix();
+    glTranslatef(0.6+x_look,-1.25,-1.9+zz);
+    glScaled(.4,.2,4);
+    drawcube(1,1,1,1,1);
+    glDisable(GL_TEXTURE_2D);
+    glPopMatrix();
+
+
+
+
+    ///numberplate
+    glBindTexture(GL_TEXTURE_2D,10);
+    glEnable(GL_TEXTURE_2D);
+    glPushMatrix();
+    glTranslatef(-.3+x_look,-1.6,-1.9+zz);
+    glScaled(.6,.4,4);
+    drawcube(1,1,1,1);
+    glDisable(GL_TEXTURE_2D);
+    glPopMatrix();
+
+
+    ///BUMPER
+    glPushMatrix();
+    glTranslatef(-1+x_look,-1.8,-1.9+zz);
+    glScaled(2,.1,4);
+    drawcube(255.1/255,255.1/255,255.1/255);
+    glPopMatrix();
 
     ///CAR TOP
-//    glBindTexture(GL_TEXTURE_2D,8);
-//    glEnable(GL_TEXTURE_2D);
-//    glPushMatrix();
-//    glTranslatef(-1+.05+x_look,-1,-1.1+zz);
-//    glScaled(2.2,1,4);
-//    drawcube(1,1,1,1);
-//    glDisable(GL_TEXTURE_2D);
-//    glPopMatrix();
-//
-//
-//    ///back glass
-//    glBindTexture(GL_TEXTURE_2D,9);
-//    glEnable(GL_TEXTURE_2D);
-//    glPushMatrix();
-//    glTranslated(-1+.15+.05+x_look,-1+.07,-1.1+zz);
-//    glScaled(1.6,.6,2.1);
-//    drawcube(1,1,1,1);
-//    glPopMatrix();
-//    glDisable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D,8);
+    glEnable(GL_TEXTURE_2D);
+    glPushMatrix();
+    glTranslatef(-1+.05+x_look,-1,-1.1+zz);
+    glScaled(1.9,.7,2);
+    drawcube(1,1,1,1);
+    glDisable(GL_TEXTURE_2D);
+    glPopMatrix();
+
+
+    ///back glass
+    glBindTexture(GL_TEXTURE_2D,9);
+    glEnable(GL_TEXTURE_2D);
+    glPushMatrix();
+    glTranslated(-1+.15+.05+x_look,-1+.07,-1.1+zz);
+    glScaled(1.6,.6,2.1);
+    drawcube(1,1,1,1);
+    glPopMatrix();
+    glDisable(GL_TEXTURE_2D);
 
 
     ///Tyre
@@ -1245,10 +1268,6 @@ void cylinderkata()
     drawcube(1,0,0);
     glPopMatrix();
 
-
-
-
-
     glPopMatrix();
     //glutSolidSphere (1.0, 20, 16);
 
@@ -1313,6 +1332,417 @@ void culvert()
     }
 
 }
+void cube(float R=0.5, float G=0.5, float B=0.5, float val=1)
+{
+    GLfloat m_no[] = {0, 0, 0, 1.0};
+    GLfloat m_amb[] = {R,G,B,1};
+    GLfloat m_diff[] = {R,G,B,1};
+    GLfloat m_spec[] = {1,1,1,1};
+    GLfloat m_sh[] = {30};
+
+    glMaterialfv(GL_FRONT, GL_AMBIENT, m_amb);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, m_diff);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, m_spec);
+    glMaterialfv(GL_FRONT, GL_SHININESS, m_sh);
+
+    glBegin(GL_QUADS);
+    for (GLint i = 0; i <6; i++)
+    {
+        getNormal3p(v_cube[c_ind[i][0]][0], v_cube[c_ind[i][0]][1], v_cube[c_ind[i][0]][2],
+                    v_cube[c_ind[i][1]][0], v_cube[c_ind[i][1]][1], v_cube[c_ind[i][1]][2],
+                    v_cube[c_ind[i][2]][0], v_cube[c_ind[i][2]][1], v_cube[c_ind[i][2]][2]);
+        glTexCoord2f(0,val);
+        glVertex3fv(&v_cube[c_ind[i][0]][0]);
+        glTexCoord2f(0,0);
+        glVertex3fv(&v_cube[c_ind[i][1]][0]);
+        glTexCoord2f(val,0);
+        glVertex3fv(&v_cube[c_ind[i][2]][0]);
+        glTexCoord2f(val,val);
+        glVertex3fv(&v_cube[c_ind[i][3]][0]);
+    }
+    glEnd();
+}
+/// Traffic System
+void trafficSystem()
+{
+    /// traffic light base
+    glPushMatrix();
+        glScalef(0.5, 0.5, 0.5);
+        glTranslatef(-0.5, 0, -0.5);
+        cube(0.941, 0.502, 0.502, 1.0);
+    glPopMatrix();
+    /// traffic light root
+
+    GLfloat m_amb[] = {0.941, 0.502, 0.502, 1.0};
+    GLfloat m_diff[] = {0.941, 0.502, 0.502, 1.0};
+    GLfloat m_spec[] = {0.941, 0.502, 0.502, 1.0};
+    GLfloat m_sh[] = {30};
+    glMaterialfv(GL_FRONT, GL_AMBIENT, m_amb);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, m_diff);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, m_spec);
+    glMaterialfv(GL_FRONT, GL_SHININESS, m_sh);
+
+    glPushMatrix();
+        glScalef(0.2, 0.2, 0.2);
+        glRotated(90, -1, 0, 0);
+        glBegin(GL_POLYGON);
+            GLUquadricObj *clock_obj = gluNewQuadric();
+            gluCylinder(clock_obj, 0.5, 0.5, 25.0, 300.0, 300.0);
+        glEnd();
+    glPopMatrix();
+
+    /// traffic light holder
+    glPushMatrix();
+        glTranslatef(0, 5, 0);
+        glScalef(1, 2, 1);
+        glTranslatef(-0.5, 0, -0.5);
+        cube(0.0, 0.0, 0.0, 1.0);
+    glPopMatrix();
+
+    /// traffic lights
+    ///front in z
+    glPushMatrix();
+        glTranslatef(0, 6, -.5);
+        glScalef(.25, .375, 0.025);
+        glTranslatef(-0.5, 0, -0.5);
+            if(!redSignal) cube(1.0, 1.000, 1.000, 1.0);
+            else cube(1.0, 0.000, 0.000, 1.0);
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(0, 5.6, -.5);
+        glScalef(.25, .375, 0.025);
+        glTranslatef(-0.5, 0, -0.5);
+            if(!redSignal) cube(1.0, 1.000, 1.000, 1.0);
+            else cube(1.000, 1.000, 1.000, 1.0);
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(0, 5.2, -.5);
+        glScalef(.25, .375, 0.025);
+        glTranslatef(-0.5, 0, -0.5);
+            if(!redSignal) cube(0.0, 1.000, 0.000, 1.0);
+            else cube(1.000, 1.000, 1.000, 1.0);
+    glPopMatrix();
+    ///back in z
+    glPushMatrix();
+        glTranslatef(0, 6.0, .5);
+        glScalef(.25, .375, 0.025);
+        glTranslatef(-0.5, 0, -0.5);
+        if(!redSignal) cube(1.0, 1.000, 1.000, 1.0);
+            else cube(1.0, 0.000, 0.000, 1.0);
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(0, 5.6, .5);
+        glScalef(.25, .375, 0.025);
+        glTranslatef(-0.5, 0, -0.5);
+         if(!redSignal) cube(1.0, 1.000, 1.000, 1.0);
+            else cube(1.000, 1.000, 1.000, 1.0);
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(0, 5.2, .5);
+        glScalef(.25, .375, 0.025);
+        glTranslatef(-0.5, 0, -0.5);
+        if(!redSignal) cube(0.0, 1.000, 0.000, 1.0);
+            else cube(1.000, 1.000, 1.000, 1.0);
+    glPopMatrix();
+    ///left in x
+    glPushMatrix();
+        glTranslatef(.5, 6, 0);
+        glScalef(.25, .375, 0.025);
+        glTranslatef(-0.5, 0, -0.5);
+        if(redSignal) cube(1.0, 1.000, 1.000, 1.0);
+        else cube(1.0, 0.000, 0.000, 1.0);
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(.5, 5.6, 0);
+        glScalef(.25, .375, 0.025);
+        glTranslatef(-0.5, 0, -0.5);
+        if(redSignal) cube(1.0, 1.000, 1.000, 1.0);
+            else cube(1.000, 1.000, 1.000, 1.0);
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(.5, 5.2, 0);
+        glScalef(.25, .375, 0.025);
+        glTranslatef(-0.5, 0, -0.5);
+        if(redSignal) cube(0.0, 1.000, 0.000, 1.0);
+            else cube(1.000, 1.000, 1.000, 1.0);
+    glPopMatrix();
+    ///right in x
+    glPushMatrix();
+        glTranslatef(-.5, 6.0, 0);
+        glScalef(.25, .375, 0.025);
+        glTranslatef(-0.5, 0, -0.5);
+            if(redSignal) cube(1.0, 1.000, 1.000, 1.0);
+        else cube(1.0, 0.000, 0.000, 1.0);
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(-.5, 5.6, 0);
+        glScalef(.25, .375, 0.025);
+        glTranslatef(-0.5, 0, -0.5);
+        if(redSignal) cube(1.0, 1.000, 1.000, 1.0);
+            else cube(1.000, 1.000, 1.000, 1.0);
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(-.5, 5.2, 0);
+        glScalef(.25, .375, 0.025);
+        glTranslatef(-0.5, 0, -0.5);
+        if(redSignal) cube(0.0, 1.000, 0.000, 1.0);
+            else cube(1.000, 1.000, 1.000, 1.0);
+    glPopMatrix();
+}
+
+///Turbine
+float vertexCoords[24] =    // Coordinates for the vertices of a cube.
+{
+    0,0,0,
+    1,0,1,
+    0,0,1,
+    0,1,1,
+    1,1,1,
+    1,0,0,
+    0,1,0,
+    1,1,0
+};
+int elementArray[24] =    // Vertex number for the six faces.
+{
+    2,3,4,1,
+    4,7,5,1,
+    0,6,3,2,
+    7,6,0,5,
+    3,6,7,4,
+    5,0,2,1
+};
+void ownscal(double x,double y,double z)
+{
+    GLfloat mat[]=
+    {
+        x,0,0,0,
+        0,y,0,0,
+        0,0,z,0,
+        0,0,0,1
+
+
+    };
+    glMatrixMode(GL_MODELVIEW);
+    glMultMatrixf(mat);
+
+
+}
+static void cube2()
+{
+    glEnableClientState( GL_VERTEX_ARRAY );
+    //glEnableClientState( GL_COLOR_ARRAY );
+    glVertexPointer( 3, GL_FLOAT, 0, vertexCoords );
+    //glColorPointer( 3, GL_FLOAT, 0, vertexColors );
+    glEnable(GL_POLYGON_OFFSET_FILL);
+    glDrawElements( GL_QUADS, 24, GL_UNSIGNED_INT, elementArray );
+    glDisable(GL_POLYGON_OFFSET_FILL);
+    //glDisableClientState( GL_COLOR_ARRAY );
+    glDisableClientState(GL_VERTEX_ARRAY);
+}
+void draw_cube()
+{
+
+    glEnableClientState( GL_VERTEX_ARRAY );
+    //glEnableClientState( GL_COLOR_ARRAY );
+    glVertexPointer( 3, GL_FLOAT, 0, vertexCoords );
+    //glColorPointer( 3, GL_FLOAT, 0, vertexColors );
+    glEnable(GL_POLYGON_OFFSET_FILL);
+    glDrawElements( GL_QUADS, 24, GL_UNSIGNED_INT, elementArray );
+    glDisable(GL_POLYGON_OFFSET_FILL);
+    //glDisableClientState( GL_COLOR_ARRAY );
+    glDisableClientState(GL_VERTEX_ARRAY);
+
+}
+static void blade(GLdouble scaley, GLdouble rot_angle, GLdouble rot_x, GLdouble rot_y, GLdouble rot_z)
+{
+    glPushMatrix();
+    glRotated(rot_angle, rot_x, rot_y, rot_z);
+    glRotated(20, 0, 1, 0);
+    glScaled(-.20, -1, 3.50);
+    glTranslated(0, 0, -1);
+    draw_cube();
+    glPopMatrix();
+}
+static void fan()
+{
+    const double t = glutGet(GLUT_ELAPSED_TIME) / 1000.0;
+    blade(-3, 0+t*250, 0,1, 0);
+    blade(-3, 120+t*250, 0, 1, 0);
+    blade(-3, 240+t*250, 0, 1, 0);
+}
+void cube2(double translate_x,double translate_y,double translate_z,double rotate_x,double rotate_y,double rotate_z,double scale_x,double scale_y,double scale_z)
+{
+    glPushMatrix();
+    //glColor3d(0.325, 0.176, 0.823);
+    glTranslated(translate_x,translate_y,translate_z);
+    glRotated(rotate_x,1,0,0);
+    glRotated(rotate_y,0,1,0);
+    glRotated(rotate_z,0,0,1);
+    ownscal(scale_x,scale_y,scale_z);
+    draw_cube();
+    glPopMatrix();
+
+}
+void circle()
+{
+   float theta=(22.0/7.0)/180.0;
+    glTranslated(-.70,0,8);
+
+    glRotated(90,1,0,0);
+    glBegin(GL_QUAD_STRIP);
+    for(int i=0; i<360; i++)
+    {
+        //glColor3d(1,0,0);
+        glVertex3f(cos(theta*i),+1,sin(theta*i));
+        //glColor3d(1,0,0);
+        glVertex3f(cos(theta*i),-1,sin(theta*i));
+    }
+    glEnd();
+    float k=0;
+    for(int i=1; i>=-1; i-=2)
+    {
+        glBegin(GL_TRIANGLE_FAN);
+
+        glVertex3f(0,i,0);
+        for(k=0; k<360; k++)
+        {
+            //glColor3d(1,0,0);
+            glVertex3f(i*cos(k*theta),i+.01,sin(k*theta));
+            glVertex3f(i*cos(k*theta),-i,sin(k*theta));
+
+        }
+        glEnd();
+    }
+}
+void rod()
+{
+    const GLfloat mat_ambient[]    = { 0.0f, 0.0f, 0.5f, 1.0f };
+    const GLfloat mat_diffuse[]    = { 0.078f, 0.062f, 0.717f, 1.0f };
+    const GLfloat mat_specular[]   = { 0.0f, 0.0f, 1.0f, 1.0f };
+    const GLfloat high_shininess[] = { 100.0f };
+
+    glMaterialfv(GL_FRONT, GL_AMBIENT,   mat_ambient);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE,   mat_diffuse);
+    glMaterialfv(GL_FRONT, GL_SPECULAR,  mat_specular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);
+
+    cube2(-.50,-3.80,4.40,0,0,0,1.30,.40,.40);
+    cube2(-.50,3.40,4.40,0,0,0,1.30,.40,.40);
+    cube2(.60,-4.40,4.40,0,0,0,.30, 9.10,0.40);
+    cube2(-.60,-4.40,4.40,0,0,0,.30, 9.10,0.40);
+
+    cube2( -0.50,-2.70,3.20,0,0,0,1.10,0.40,0.30);
+    cube2( -0.50,+2.70,3.20,0,0,0,1.10,0.40,0.30);
+
+    cube2( .20,-2.90,3.50,0,0,0,.40,5.70,-.20);
+    cube2( -.20,-2.90,3.50,0,0,0,.40,5.70,-.20);
+
+
+}
+void windmill()
+{
+
+    {
+        ///Rod
+        glPushMatrix();
+        const GLfloat mat_ambient[]    = { 0.0f, 0.0f, 0.5f, 1.0f };
+        const GLfloat mat_diffuse[]    = { 0.078f, 0.062f, 0.717f, 1.0f };
+        const GLfloat mat_specular[]   = { 0.0f, 0.0f, 1.0f, 1.0f };
+        const GLfloat high_shininess[] = { 100.0f };
+
+        glMaterialfv(GL_FRONT, GL_AMBIENT,   mat_ambient);
+        glMaterialfv(GL_FRONT, GL_DIFFUSE,   mat_diffuse);
+        glMaterialfv(GL_FRONT, GL_SPECULAR,  mat_specular);
+        glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);
+        cube2(0,0,0,-5,0,-5,.50,13.80,.5);
+
+        cube2(0,0,-2.90,5,0,-5,.50,13.80,.5);
+
+        cube2(2.70,0,0,-5,0,5,.50,13.80,.5);
+
+        cube2(2.70,0,-2.90,5,0,5,.50,13.80,.5);
+
+        glPopMatrix();
+
+    }
+
+    {
+        ///chakti
+
+
+        const GLfloat mat_ambient3[]    = { .5, 0.0f, 0.0f, 1.0f };
+        const GLfloat mat_diffuse3[]    = { .8, 0.0f, 0.0f, 1.0f };
+        const GLfloat mat_specular3[]   = { .5, 0.0f, 0.0f, 1.0f };
+        const GLfloat high_shininess3[] = { 100.0f };
+
+        glMaterialfv(GL_FRONT, GL_AMBIENT,   mat_ambient3);
+        glMaterialfv(GL_FRONT, GL_DIFFUSE,   mat_diffuse3);
+        glMaterialfv(GL_FRONT, GL_SPECULAR,  mat_specular3);
+        glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess3);
+
+        glTranslated(2.70,13.50,1.20);
+
+        glScaled(1.8,2.50,-.30);
+
+        circle();
+
+    }
+
+    glPushMatrix();
+    glTranslated(0,-4.10,.30);
+    fan();
+    glPopMatrix();
+
+
+    {
+        glPushMatrix();
+        glTranslated(.30,-.80,-1.30);
+        glScaled(.30,4.1,.20);
+        const GLfloat mat_ambient2[]    = { 0.0f, 0.0f, 0.0f, 1.0f };
+        const GLfloat mat_diffuse2[]    = { 0.0f, 0.0f, 0.0f, 1.0f };
+        const GLfloat mat_specular2[]   = { 0.0f, 0.0f, 0.0f, 1.0f };
+        const GLfloat high_shininess2[] = { 100.0f };
+
+        glMaterialfv(GL_FRONT, GL_AMBIENT,   mat_ambient2);
+        glMaterialfv(GL_FRONT, GL_DIFFUSE,   mat_diffuse2);
+        glMaterialfv(GL_FRONT, GL_SPECULAR,  mat_specular2);
+        glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess2);
+        circle();
+        glPopMatrix();
+    }
+
+
+    rod();
+
+}
+void rotated(int am,int bm,int cm){
+    glRotated(am,1,0,0);
+    glRotated(bm,0,1,0);
+    glRotated(cm,0,0,1);
+}
+
+///sphere
+void piece(float a,float b,float c)
+{
+
+    GLfloat no_mat[] = { 0.0, 0.0, 0.0, 1.0 };
+    GLfloat mat_ambient[] = { a, b, c, 0.3 };
+    GLfloat mat_diffuse[] = { a, b, c, 1.0 };
+    GLfloat mat_specular[] = { 1, 1,1, 1.0 };
+    GLfloat mat_shininess[] = {60};
+//front phase niye kaaj hoche
+    glMaterialfv( GL_FRONT, GL_AMBIENT, mat_ambient);
+    glMaterialfv( GL_FRONT, GL_DIFFUSE, mat_diffuse);
+    glMaterialfv( GL_FRONT, GL_SPECULAR, mat_specular);
+    glMaterialfv( GL_FRONT, GL_SHININESS, mat_shininess);
+
+    glutSolidSphere (1., 50, 50);
+
+
+}
+
+
+
 
 
 void textDisplay(string str,int x,int y,int z)
@@ -1366,6 +1796,7 @@ static void display(void)
     //string st;
     const double t = glutGet(GLUT_ELAPSED_TIME) / 1000.0;
     const double a = t*90.0;
+    glBindTexture(GL_TEXTURE_2D,21);
     glClearColor(.2, 0.593, .85540, 1.0);
     //printf("life %lf\n",life);
     //glClearColor(0,0,0,1.0);
@@ -1414,7 +1845,7 @@ static void display(void)
     glRotatef(rot,0,1,0);
 
 
-    ///showing score in sky,game over,instructions....
+    //showing score in sky,game over,instructions....
 
     glPushMatrix();
     stringtext.str("");
@@ -1442,9 +1873,9 @@ static void display(void)
         if(start)
         {
             string pausestr;
-            pausestr="P: Start! E: Pause!";
+            //pausestr="P: Start! E: Pause!";
             textDisplay(pausestr,x_look,2,zz);
-            pausestr="A : Left D: Right W: Forward";
+            //pausestr="A : Left D: Right W: Forward";
             textDisplay(pausestr,x_look,1.5,zz);
 
 
@@ -1460,11 +1891,11 @@ static void display(void)
             else
             {
                 stringtext<<scoresave;
-                str="Score : " + stringtext.str();
-                strlife="LIFE Remaining"+lifee.str();
+                //str="Score : " + stringtext.str();
+                //strlife="LIFE Remaining"+lifee.str();
                 //cout<<strlife<<endl;
                 string pausestr;
-                pausestr="Press 'E' to Resume..";
+                //pausestr="Press 'E' to Resume..";
                 textDisplay(pausestr,x_look-2,2,zz);
             }
             //stringtext<<scoresave;
@@ -1474,7 +1905,7 @@ static void display(void)
             stringstream lifeoutput;
             lifeoutput<<life;
             string str1;
-            str1="Life: " + lifeoutput.str()+"/3";
+            //str1="Life: " + lifeoutput.str()+"/3";
             //textDisplay(str1,x_look-3.5,3,zz);
             //string str1;
 
@@ -1544,15 +1975,73 @@ static void display(void)
 
     ///calling objects
     piler();
-    footpath();
-    Floor();
-    track();
-    building();
     glPushMatrix();
-    glTranslatef(0,0.17,0);
+    glTranslated(0,-.25, 0);
+    footpath();
+    glPopMatrix();
+
+    Floor();
+
+//    glPushMatrix();
+//    glTranslated(100, 0, 0);
+//    glRotated(90, 0, 0, 1);
+//    glBindTexture(GL_TEXTURE_2D,22);
+//    glEnable(GL_TEXTURE_2D);
+//    Floor2();
+//    glPopMatrix();
+
+    track();
+
+    building();
+
+    glPushMatrix();
+    glTranslated(150, -0.01, -50);
+    glRotated(90, 0, 1, 0);
+    glBindTexture(GL_TEXTURE_2D,21);
+    glEnable(GL_TEXTURE_2D);
+    track();
+
+    glPopMatrix();
+    ///car-1
+    glPushMatrix();
+    glTranslatef(0,0.4,0);
     car();
     glPopMatrix();
 
+    ///car-2
+    glPushMatrix();
+    glTranslated(1, .4, -55);
+    glRotated(90, 0, 1, 0);
+    car();
+    glPopMatrix();
+
+    ///car-3
+    glPushMatrix();
+    glTranslated(-4, .4, -155);
+    glRotated(180, 0, 1, 0);
+    //glColor3f(0, 0, 0);
+    car();
+    glPopMatrix();
+
+    ///car-4
+    glPushMatrix();
+    glTranslated(-4, .4, -30);
+    glRotated(180, 0, 1, 0);
+    car();
+    glPopMatrix();
+
+    ///car-5
+    glPushMatrix();
+    glTranslated(4, .4, -220);
+    glRotated(180, 0, 1, 0);
+    car();
+    glPopMatrix();
+
+    ///car-6
+    glPushMatrix();
+    glTranslatef(-2,0.4,-160);
+    car();
+    glPopMatrix();
 
 
 
@@ -1563,6 +2052,61 @@ static void display(void)
     //glTranslated(-.3+x_look,1.6+5,-8+zz);
     //drawcube(255.1/255,255.1/255,53.1/255);
     glPopMatrix();
+
+    ///Traffic Pole-1
+
+    glPushMatrix();
+    glTranslatef(-6.5, -1.0, -30.0);
+    glScaled(.5,.5,.5);
+    trafficSystem();
+    glPopMatrix();
+
+    ///Traffic Pole-2
+
+    glPushMatrix();
+    glTranslatef(-6.5, -1.0, -60.0);
+    glScaled(.5,.5,.5);
+    trafficSystem();
+    glPopMatrix();
+
+     ///Traffic Pole-3
+
+    glPushMatrix();
+    glTranslatef(7.5, -1.0, -30.0);
+    glScaled(.5,.5,.5);
+    trafficSystem();
+    glPopMatrix();
+
+    ///Traffic Pole-4
+
+    glPushMatrix();
+    glTranslatef(7.5, -1.0, -60.0);
+    glScaled(.5,.5,.5);
+    trafficSystem();
+    glPopMatrix();
+
+
+
+    ///Turbine
+
+    glPushMatrix();
+    rotated(10,10,0);
+    glTranslated(10.0, -3.00,-8.30);
+    glScaled(-.90+1,-.90+1,-.90+1);
+    windmill();
+    glPopMatrix();
+
+    ///sphere
+
+    glPushMatrix();
+    glTranslatef(-9.5,-1,-6);
+    //glScalef(1,0.3,3);
+    piece(0.5,0.173,0.435);
+    glPopMatrix();
+
+
+
+
 
     glutSwapBuffers();
 
@@ -1578,28 +2122,29 @@ static void key(unsigned char key, int x, int y)
     {
     case 27 :
     case 'q':
+    case 'Q': ///exit
         exit(0);
         break;
-    case'e':
-    case'E':
-        pause=1-pause;
-        break;
+//    case'e':
+//    case'E':
+//        pause=1-pause;
+//        break;
 
 
-    case 'w':
+    case 'w': ///to move forward manually
         zz = zz - 1.8;
         break;
-    case 's':
+    case 's': ///to move backward manually
         zz = zz + 0.3;
         break;
 
-    case 'd':
+    case 'd': ///move right in 3rd person view
         if ( x_look < 6.7)
             x_look = x_look + factor;
         else
             x_look = x_look;
         break;
-    case 'a':
+    case 'a': ///move left in 3rd person view
         if ( x_look > -5)
             x_look = x_look - factor;
         else
@@ -1607,41 +2152,42 @@ static void key(unsigned char key, int x, int y)
         break;
         break;
     case 'm':
-    case 'M':
+    case 'M':/// yaw clockwise
         //eyex
         //rotation();
         kon+=0.01;
         rot+=5;
         break;
 
-    case 'n':
+    case 'n':/// yaw anti-clockwise
     case 'N':
         //rotation();
         kon-=0.01;
         rot-=5;
         break;
-    case 'K':
+    case 'K':///pitch up
     case 'k':
         yy=yy+0.1;
-
-    case 'j':
+        break;
+    case 'j':///pitch down
     case 'J':
         yy=yy-0.1;
-    case 'f':
+        break;
+    case 'f':///environmental light 1
     case 'F':
         l_on1=1-l_on1;
         break;
-    case 'g':
+    case 'g':///environmental light 2
     case 'G':
         l_on2=1-l_on2;
         break;
-    case 'h':
+    case 'h': ///spot light
     case 'H':
         l_on3=1-l_on3;
         break;
 
     case 'r':
-    case 'R':
+    case 'R':///ambient
         ambflag=1-ambflag;
         break;
     case 'p':
@@ -1650,21 +2196,36 @@ static void key(unsigned char key, int x, int y)
         pause=1-pause;
         break;
     case 't':
-    case 'T':
+    case 'T': ///diffuse
         difflag=1-difflag;
         break;
     case 'y':
-    case 'Y':
+    case 'Y':///specular
         specflag=1-specflag;
         break;
-    case'z':
-    case'Z':
-        //pause=true;
-        life=3;
-        scoresave=0;
-        zz=50;
-        start=true;
-        x_look=0;
+//    case'z':
+//    case'Z':
+//        //pause=true;
+//        life=3;
+//        scoresave=0;
+//        zz=50;
+//        start=true;
+//        x_look=0;
+//        break;
+    /// moving objects control
+    case 'c':
+    case 'C':
+
+        if(redSignal){
+            speed = 2.0;
+            redSignal = false;
+
+        }
+        else {
+            speed = 0;
+            redSignal = true;
+        }
+
         break;
 
     }
@@ -1697,6 +2258,28 @@ static void idle(void)
 
 int main(int argc, char *argv[])
 {
+    cout<<"*********I N S T R U C T I O N S*********"<<"\n";
+    cout<<"# p/P -> Start/Pause"<<endl;
+    cout<<"# q/Q -> Quit"<<endl;
+    cout<<endl<<"<<<<<M O V E M E N T>>>>>"<<endl;
+    cout<<"# w -> move forward"<<endl;
+    cout<<"# s -> move backward"<<endl;
+    cout<<"# a -> move right"<<endl;
+    cout<<"# d -> move left"<<endl;
+    cout<<endl<<"<<<<<T R A F F I C   C O N T R O L>>>>>"<<endl;
+    cout<<"# c/C -> red light/ green light"<<endl;
+    cout<<endl<<"<<<<<C A M E R A   V I E W>>>>>"<<endl;
+    cout<<"# m/M -> yaw clockwise"<<endl;
+    cout<<"# n/N -> yaw anti-clockwise"<<endl;
+    cout<<"# k/K -> pitch up"<<endl;
+    cout<<"# j/J -> pitch down"<<endl;
+    cout<<endl<<"<<<<<L I G H T I N G S>>>>>"<<endl;
+    cout<<"# r/R -> ambient"<<endl;
+    cout<<"# t/T -> diffuse"<<endl;
+    cout<<"# y/Y -> specular"<<endl;
+    cout<<"# f/F -> environmental light 01"<<endl;
+    cout<<"# g/G -> environmental light 02"<<endl;
+    cout<<"# h/H -> spot light"<<endl<<endl;
     glutInit(&argc, argv);
     glutInitWindowSize(640,480);
     glutInitWindowPosition(10,10);
@@ -1718,23 +2301,24 @@ int main(int argc, char *argv[])
     glutIdleFunc(idle);
 
 
+
     glShadeModel( GL_SMOOTH );
     glEnable( GL_DEPTH_TEST );
     glEnable(GL_NORMALIZE);
     glEnable(GL_BLEND);
     glEnable(GL_LIGHTING);
     LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\road.bmp");///1
-    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\grass.bmp");///2
-    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\pavement.bmp");///3
-    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\lastbuilding.bmp");///4
-    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\thirdbuilding1.bmp");///5
-    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\RedWhiteStripe.bmp");///6
-    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\BLU.bmp");///7
-    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\stainless.bmp");///8
+    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\ground1.bmp");///2
+    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\footpath3.bmp");///3
+    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\buildings1.bmp");///4
+    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\buildings2.bmp");///5
+    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\yellowstripe.bmp");///6
+    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\car-2.bmp");///7
+    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\cartop1.bmp");///8
     LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\backglas.bmp");///9
-    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\numberplate.bmp");///10
+    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\numberplate-2.bmp");///10
     LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\redlight.bmp");///11
-    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\zebra-crossing.bmp");///12
+    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\grass3.bmp");///12
     LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\buildings3.bmp");///13
     LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\buildings4.bmp");///14
     LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\treeside.bmp");///15
@@ -1743,8 +2327,12 @@ int main(int argc, char *argv[])
     LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\fire1.bmp");///18
     LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\obstacle.bmp");///19
     LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\tunnel.bmp");///20
+    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\sky-3.bmp");///21
+    LoadTexture("C:\\Users\\Rashed\\Downloads\\Traffic-system-[1707112]\\TrafficSystem\\sky-3.bmp");///22
+
 
     glutMainLoop();
+
 
     return EXIT_SUCCESS;
 }
